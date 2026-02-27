@@ -1,0 +1,22 @@
+
+
+```
+git add name
+git add *
+git commit -m ""
+git status
+git log
+git log --oneline
+git reflog
+git reset --hard hash //돌아간 커밋 이후의 변경 이력을 전부 삭제, 잘안씀 하드리셋 그룹작업에 위험함
+git reset --soft hash //변경 이력 삭제, 변경 내용은 남아있음, 인덱스 초기화(git add가 안되어 있는 상태)(status초기화)
+git reset --mixed hasg //변경 이력 삭제, 변경 내용은 남이있음, 인덱스도 유지(git add까지 되어 있음)
+git branch
+git branch dev
+git switch "" == git checkout ""
+git merge ""
+git merge "" --no-ff -m ""
+
+
+
+```
