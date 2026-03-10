@@ -1,0 +1,283 @@
+
+root : 기본 설정 값
+
+# 26-03-10
+
+## Visual Studio Code
+
+## 오늘자 주요 태그
+	FONT
+	BOX
+	SELECTOR
+
+## 오늘 배운 것
+    1. 글자 크기 단위 (Font Size)
+	- px: 고정된 크기입니다. (기본값 16px)
+	- em: 부모 요소의 글자 크기를 기준으로 한 배수입니다.
+	- rem: **최상위 요소(root)**의 글자 크기를 기준으로 합니다. (가장 권장되는 단위)
+	- %: 부모 요소 크기를 기준으로 한 백분율입니다.
+	- vw: 뷰포트(브라우저 화면) 가로폭 기준입니다.
+	- clamp(min, val, max): 값의 범위를 지정해, 화면 크기가 변해도 너무 작거나 커지지 않게 제한할 수 있습니다.
+	
+    2. 여백 관리 (Margin & Padding)
+	- margin (바깥 여백): 요소와 요소 사이의 간격을 벌릴 때 사용합니다.
+		1개 값: 상하좌우 동일
+		2개 값: 위·아래 / 왼쪽·오른쪽
+		3개 값: 위 / 왼쪽·오른쪽 / 아래
+		4개 값: 위 / 오른쪽 / 아래 / 왼쪽 (시계 방향)
+	- padding (안쪽 여백): 요소 내부의 콘텐츠와 테두리 사이의 간격을 조절합니다. 버튼 등을 만들 때 고정 크	
+	  기(width)를 지정하기보다 padding을 사용하는 것이 훨씬 유연하고 예쁘게 잡힙니다.
+
+	3. 정렬 공식 (Center Alignment)
+	- margin: 0 auto;: 블록 요소를 가로 중앙에 배치할 때 가장 기본적인 방법입니다.
+	- display: flex;: 부모 요소에 설정하여 자식 요소를 justify-content와 align-items로 자유자재로 정렬합니다. 	  
+	  가장 현대적이고 강력한 방법.
+	- position: absolute;: 부모에 relative를 주고, 자식의 상하좌우를 0으로 설정한 뒤 margin: auto;를 주면 
+	  정중앙에 배치됩니다.
+	  
+	4. 테두리 (Border & Radius)
+	- border 활용: 투명한 테두리를 사용하여 기하학적 도형(삼각형 등)을 구현할 수 있습니다.
+	- border-radius: 모서리를 둥글게 만듭니다. 50% 값을 주면 정사각형을 완벽한 동그라미로 만들 수 있어요.
+
+	5. BoxSizing (박스 크기 계산 기준)
+	- *{box-sizing: border-box;}
+	- content-box: 기본값이에요. width를 300px로 주면 패딩과 테두리가 그 바깥으로 더해져서 실제 크기가 커져요. 
+	  ($300 + padding + border$)
+	- border-box: 권장 방식! width를 300px로 주면 패딩과 테두리가 그 안으로 포함되어, 전체 크기가 300px로 유지돼요.
+	  계산하기 훨씬 편하답니다.
+
+	6. Overflow (넘침 제어)
+	- visible: 넘치는 부분을 그대로 다 보여줘요. (기본값)
+	- hidden: 넘치는 부분을 잘라내서 보이지 않게 해요.
+	- scroll: 내용이 넘치든 아니든 항상 스크롤바를 생성해요.
+	- auto: 가장 많이 써요! 내용이 부모보다 클 때만 자동으로 스크롤바를 만들어줘요.
+	- overflow-x: 가로 방향 넘침만 제어
+	- overflow-y: 세로 방향 넘침만 제어
+
+	7. 자식선택자(A>B) / 자손선택자(A B)
+	- 기호 : A > B
+	- A 바로 밑에 있는 직계 자식인 B에게만 스타일을 적용해요.
+	- 기호 : A B
+	- A 안에 포함된 모든 후손 B에게 스타일을 적용해요.
+
+	8. 동위선택자(~,+)
+	- 기호: A + B
+	- A 바로 다음에 오는 딱 한 개의 형제 B만 선택해요.
+	- 기호: A ~ B
+	- A 뒤에 오는 모든 형제 B를 선택해요. (순서상 뒤에 있기만 하면 돼요!)
+
+	9. 의사요소선택자 or 가상요소선택자
+	1) A::before
+	- 선택한 요소의 **콘텐츠 시작 부분(앞)**에 가상 자식을 생성해요.
+	- 반드시 content 속성이 있어야 화면에 나타납니다.
+	- 예: div::before { content: '😊'; } → div의 텍스트가 시작되기 바로 앞에 이모지가 생겨요.
+	2) A::after
+	- 선택한 요소의 **콘텐츠 끝 부분(뒤)**에 가상 자식을 생성해요.
+	- 아이콘을 넣거나, 꾸밈 요소를 추가할 때 정말 많이 사용해요.
+	- 예: div::after { content: '👍'; } → div의 텍스트가 끝나는 지점 바로 뒤에 이모지가 붙어요.
+	
+### FontSize
+    <!-- px : 고정 크기 기본값 : 16px -->
+    <div style="font-size: 48px;">
+        <div style="font-size: 32px;">HELLOWORLD</div>
+    </div>
+	- 글자 크기의 기본 단위 px
+
+
+    <!-- em : 상대크기(부모태그의 font-size를 기준으로 한 배수) -->
+    <div style="font-size: 24px;">
+        <div style="font-size: 1em;">HELLOWORLD</div>
+        <div style="font-size: 0.5em;">HELLOWORLD</div>
+    </div>
+	- 부모의 font-size를 1배수로 계산합니다. em
+	
+
+    <!-- rem : 상대크기(기본글자크기 : root 16px기준) -->
+    <div style="font-size: 24px;">
+        <div style="font-size: 1rem;">HELLOWORLD</div>
+        <div style="font-size: 0.5rem;">HELLOWORLD</div>
+    </div>
+	- :root 또는 <html>의 font-size 기준입니다. rem
+
+
+    <!-- % : 상대크기(상위태그기준) -->
+    <div style="font-size: 24px;">
+        <div style="font-size: 200%;">HELLOWORLD</div>
+        <div style="font-size: 75%;">HELLOWORLD</div>
+    </div>
+	- 부모 크기에 대한 백분율로 계산됩니다. %
+
+
+    <!-- vw : 상대크기(뷰포트 기준) -->
+    <div style="font-size: 24px;">
+        <div style="font-size: 1vw;">HELLOWORLD</div>
+        <div style="font-size: 1.5vw;">HELLOWORLD</div>
+    </div>
+	- 화면 가로폭 전체를 100으로 나눈 값입니다. vw
+
+
+    <!-- clamp(최솟값,비율,최댓값) -->
+    <div style="width:clamp(200px,50vw,1280px);height: 200px;border: 1px solid;margin: 0 auto;">
+        <div style="font-size: clamp(0.8rem,5vw,4rem); text-align: center; line-height: 200px;">
+            HELLOWORLD
+        </div>
+	- vw를 사용할 때 너무 작아지거나 커지지 않게 최솟값과 최댓값을 고정할 수 있다.
+
+
+### FontFamily
+        /* FONT 등록 */
+        @font-face {
+            font-family: 'custom-01';
+            src: url("./fonts/나눔손글씨\ 다행체.ttf");
+            font-style: normal;
+        }
+	- <div style="font-family:custom-01;">HEllO WORLD</div>
+	- 임의의 폰트를 받아 사용할 수 있다.
+
+
+### Margin
+        /* 1. 가운데맞추기 - margin : 0 auto */
+        .d2 {
+            margin: 50px auto;
+        }
+
+        /* 2. 가운데맞추기 - display:flex (LAYOUT)상위태그에서 사용 */
+        .parent1 {
+            height: 250px;
+            width: 80vw;
+            margin: 0 auto;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .son {
+            background-color: royalblue;
+            width: 150px;
+            height: 150px;
+            border: 1px solid;
+        }
+
+        /* 3. 가운데맞추기 : position */
+        .parent2 {
+            height: 250px;
+            width: 80vw;
+            margin: 0 auto;
+            /*  */
+            position: relative;
+        }
+        /* 가운데 배치 공식 */
+        .parent2>.son{
+            position: absolute;
+            left : 0;
+            right : 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+
+### Padding
+        .btn {
+            font-size: 0.9rem;
+            text-decoration: none;
+            color: lightgray;
+            background-color: transparent;
+            border: 1px solid lightgray;
+            outline: 0;
+            border-radius: 2px;
+	}
+            /* width: 80px; */
+            padding: 10px 20px;
+	- 버튼을 만들때 크기를 맞추기위해 width보다 padding을 사용하는 것이 더 좋다
+
+### Border
+        /* 삼각형 만들기 */
+        .d2{
+            background-color: transparent; //transparent : 투명하게
+            border-top: 10px solid transparent;
+            border-right: 10px solid black;
+            border-bottom: 10px solid blue;
+            border-left: 10px solid transparent;
+
+            width: 0px;
+            height: 0px;
+        }
+        /* 테두리 깍기 */
+        .d3{
+            /* border-radius: 50px; */
+            /* 1,3 모서리 : 20px  2,4 모서리 : 40px */
+            border-radius: 20px 40px;
+
+            /* 1 모서리 : 10px   2,4 모서리 : 20px  3 모서리 : 30px */
+            border-radius: 10px 20px 30px;
+
+            /* 1 모서리 : 10px   2 모서리 : 20px  3 모서리 : 30px   4 모서리 : 40px */
+            border-radius: 10px 20px 30px 40px;
+
+            /* 동그라미 */
+            border-radius: 50%;
+        }
+
+
+### 자식,자손 선택자
+	    /* 자식선택자 : '>' */
+        .parent>div {
+            border: 1px solid;
+        }
+			- 
+
+        /* 자손선택자 : ' ' */
+        .parent p{
+            background-color: royalblue;
+        }
+		
+
+### 동위선택자
+        /* 
+            ~ : 동위선택자(같은 Depth의 하위 모든 선택자)
+            + : 동위선택자(같은 Depth의 하위 1개 선택자)
+        */
+        .c1>p{
+            color: blueviolet;
+        }
+        .c2~p{
+            background-color: orange;
+        }
+        .c2+p{
+            width: 200px;
+        }
+
+
+### 의사요소 선택자 or 가상요소 선택자
+        /* 
+            :: 의사요소 선택자 or 가상요소 선택자
+
+            ::after  :
+            ::before :
+        */
+        div{
+            width: 400px;
+            height: 200px;
+            border: 1px solid;
+            background-color: orange;
+            text-align: center;
+            line-height: 200px;
+        }
+        div::before{
+           content: '😊😂'; 
+        }
+
+        div::after{
+            content: '👍👍';
+        }
+
+
+
+
+
+
+
