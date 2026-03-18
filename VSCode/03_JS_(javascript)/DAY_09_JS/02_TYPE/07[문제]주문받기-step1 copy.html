@@ -11,7 +11,7 @@
     <script src="./js/중구맛집.js"></script>
     <script>
         const 중구맛집_data = 중구맛집.data;
-        console.log("중구맛집All : " ,중구맛집_data);
+        console.log("중구맛집All : ", 중구맛집_data);
     </script>
 </head>
 
@@ -108,41 +108,64 @@
         // 사전작업
         const selectRestorantEl = document.querySelector('.select-restorant');
         const catRestorant = document.querySelector('.cat-restorant');
-        const catList = 
-        중구맛집_data.reduce((catList,item)=>{
-            // console.log('reduce', item.FD_CS);
-                catList[item.FD_CS]=(catList[item.FD_CS]==undefined)? 1 : catList[item.FD_CS] + 1;
+        const catList =
+            중구맛집_data.reduce((catList, item) => {
+                // console.log('reduce', item.FD_CS);
+                catList[item.FD_CS] = (catList[item.FD_CS] == undefined) ? 1 : catList[item.FD_CS] + 1;
                 // console.log('reduce', catList);
                 return catList;
-            },{})
-        console.log('catList',catList)
+            }, {})
+        console.log('catList', catList)
         //---------------------------------------
         // step-1 - 상호명 선택하기 채우기
         //---------------------------------------
-        중구맛집_data.forEach((item)=>{
+        중구맛집_data.forEach((item) => {
             const optionEl = document.createElement('option');
             optionEl.innerHTML = item.BZ_NM;
             selectRestorantEl.appendChild(optionEl)
         })
 
-        Object.entries(catList).forEach((item)=>{
-            console.log('item',item);
+        Object.entries(catList).forEach((item) => {
+            // console.log('item',item);
             const optionEl = document.createElement('option');
             optionEl.innerHTML = `${item[0]} | ${item[1]}`;
             catRestorant.appendChild(optionEl);
         })
-        
+
+        // 이벤트 처리
+        catRestorant.addEventListener('change', (e) => {
+            console.log(e.target.value);
+            const target = e.target.value;
+
+            const selectItems =
+                중구맛집_data.filter((item) => {
+                    return (target == 'all') ? item : target.includes(item.FD_CS);
+                })
+            console.log("selectedItems", selectItems)
+
+            // 기존 select에 옵션을 삭제! 후 추가
+            while (selectRestorantEl.firstChild) {
+                selectRestorantEl.removeChild(selectRestorantEl.firstChild);
+            }
+            // 추가
+            selectItems.forEach((item) => {
+                const optionEl = document.createElement('option');
+                optionEl.innerHTML = item.BZ_NM;
+                selectRestorantEl.appendChild(optionEl);
+            })
+        })
+
 
 
         // step-2
 
-        // 
+        //
 
         // step-3
 
         // 
 
- 
+
     </script>
 </body>
 
