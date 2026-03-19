@@ -1,0 +1,61 @@
+자바 프로그램스 문제 lv.0 - 3
+
+문제41. 두 수의 차 구하기
+class Solution {
+    public int solution(int num1, int num2) {
+        int answer = num1 - num2;
+        return answer;
+    }
+}
+
+문제42. 중복된 숫자 개수
+class Solution {
+    public int solution(int[] array, int n) {
+        int answer = 0;
+        for (int ch : array) {
+            if ( ch == n ) {
+                answer++;
+            }
+        }
+        return answer;
+    }
+}
+
+문제43. 중앙값 구하기( Arrays.sort() )
+1. import java.util.Arrays;
+class Solution {
+    public int solution(int[] array) {
+        Arrays.sort(array);
+        return array[array.length/2];
+    }
+}
+2. class Solution {
+    public int solution(int[] array) {
+        // 1. 버블 정렬(Bubble Sort)로 숫자들을 순서대로 줄 세워요!
+        // 큰 바퀴: 모든 숫자가 제자리를 찾을 때까지 반복 (n번)
+        for (int i = 0; i < array.length - 1; i++) {
+            
+            // 작은 바퀴: 옆집 친구랑 키를 비교해서 큰 사람을 뒤로 보내요!
+            for (int j = 0; j < array.length - 1 - i; j++) {
+                
+                // 만약 왼쪽(j)이 오른쪽(j+1)보다 크다면? (키가 더 크면 뒤로 가!)
+                if (array[j] > array[j + 1]) {
+                    
+                    // [자리 바꾸기 마법 🎩] 빈 컵(temp)을 사용해서 바꿔치기!
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
+            }
+        }
+        
+        // 2. 이제 정렬이 끝났으니, 딱 중간에 있는 방 번호를 계산해요.
+        // 예: 길이가 5면 5 / 2 = 2 (0, 1, '2', 3, 4번 방 중 2번!)
+        int middleIndex = array.length / 2;
+        
+        // 3. 중앙에 있는 값을 정답으로 돌려줍니다.
+        return array[middleIndex];
+    }
+}
+
+문제44.
