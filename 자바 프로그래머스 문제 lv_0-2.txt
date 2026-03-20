@@ -295,11 +295,6 @@ class Solution {
         return answer;
     }
 }
-class Solution {
-    public int solution(String myString) {
-        return myString.chars().mapToObj(i -> (char) i).filter(Character::isDigit).map(String::valueOf).mapToInt(Integer::valueOf).sum();
-    }
-}
 
 문제37. 배열 두 배 만들기
 class Solution {

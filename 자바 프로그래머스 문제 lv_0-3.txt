@@ -58,4 +58,67 @@ class Solution {
     }
 }
 
-문제44.
+문제44. 공배수
+class Solution {
+    public int solution(int number, int n, int m) {
+        int answer = 0;
+        if (number % n == 0) {
+            if (number % m == 0) {
+                return answer = 1;
+            }
+        }
+        else {
+            return answer = 0;
+        }
+        return answer;
+    }
+}
+
+문제45. 홀짝에 따라 다른 값 반환하기
+class Solution {
+    public int solution(int n) {
+        int answer = 0;
+        if (n % 2 == 0) {
+            int sum1 = 0;
+            for (int i = 2; i<= n; i += 2){
+                sum1 += i*i;
+            }
+            answer = sum1;
+        }
+        else {
+            int sum2 = 0;
+            for (int i =1; i<= n; i += 2){
+                sum2 += i;
+            }
+            answer = sum2;
+        }
+        return answer;
+    }
+}
+
+문제46. 대문자로 바꾸기
+1. class Solution {
+    public String solution(String myString) {
+        String answer = "";
+        for (char ch : myString.toCharArray()){
+            answer += Character.toUpperCase(ch);
+        }
+        return answer;
+    }
+}
+2. class Solution {
+    public String solution(String myString) {
+        return myString.toUpperCase();
+    }
+}
+
+문제47. 부분 문자열인지 확인하기
+class Solution {
+    public int solution(String my_string, String target) {
+        int answer = 0;
+        if (my_string.contains(target)){
+            answer = 1;
+        }
+        return answer;
+    }
+}
