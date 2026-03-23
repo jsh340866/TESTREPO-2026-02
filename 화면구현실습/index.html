@@ -75,7 +75,7 @@
       width: 300px;
       display: flex;
       justify-content: space-between;
-      
+
       /* border: 1px solid ; */
     }
 
@@ -109,18 +109,20 @@
       position: relative;
       background-color: #3C2114;
     }
-    .wrapper>header>nav>.backing{
+
+    .wrapper>header>nav>.backing {
       width: 1920px;
       height: 235px;
       position: absolute;
       margin-left: -1px;
       background-image: url(https://www.yogiyo.co.kr/mobile/image/bg-top.png?v=1);
       background-repeat: no-repeat;
-      background-size: contain ;
+      background-size: contain;
       background-position: center;
-      
-      
+
+
     }
+
     /* .wrapper>header>nav>.back-back{
       position: absolute;
       width: 100%;
@@ -134,7 +136,7 @@
     .wrapper>header>nav>.back {
       margin-top: 80px;
       display: flex;
-      
+
     }
 
     .wrapper>header>nav>.back>.gps {
@@ -145,6 +147,7 @@
       background-color: white;
       /* border: 1px solid; */
       z-index: 3;
+      cursor: pointer;
 
     }
 
@@ -187,6 +190,12 @@
       width: 40px;
       height: 40px;
       background-color: white;
+      color: #fa0050;
+      font-size: 1.6rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
       /* border: 1px solid; */
     }
 
@@ -196,24 +205,25 @@
       background-color: #ff8a00;
       border-top-right-radius: 5px;
       border-bottom-right-radius: 5px;
-
-
-    }
-
-    .wrapper>header>nav>.back>.nav-right>.search>a {
       color: white;
+      cursor: pointer;
+
     }
 
-    .wrapper>header>nav>.back>.gps>a {
+    /* .wrapper>header>nav>.back>.nav-right>.search>a {
+      color: white;
+    } */
+
+    /* .wrapper>header>nav>.back>.gps>a {
       width: 40px;
       height: 40px;
       line-height: 40px;
 
       /* border: 1px solid black; */
-      display: block;
+      /* display: block;
       margin-left: -6px;
       margin-top: -1px;
-    }
+    } */
 
     .wrapper>header>nav>.back>.nav-right>.text>a {}
 
@@ -229,11 +239,6 @@
 
       margin-left: -7px;
       margin-top: -2px;
-
-    }
-
-    .wrapper>header>nav>.search>a {
-      color: white;
 
     }
 
@@ -276,7 +281,7 @@
     }
 
     .wrapper>header>nav>.back>.nav-right>.dropbox>ul>li:first-child {
-      border-bottom: 1px solid rgba(77, 77, 77, 0.5);
+      border-bottom: 1px solid rgba(111, 111, 111, 0.5);
 
     }
 
@@ -304,8 +309,7 @@
     .wrapper>main>.menu>.menu-box {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
+      gap: 10px;
       padding: 10px;
 
 
@@ -325,7 +329,7 @@
     .wrapper>main>.menu>.menu-box>div>.category {
       width: 80px;
       height: 22px;
-      margin: 20px;
+      margin: 10px;
       /* border: 1px solid; */
       z-index: 5;
       position: absolute;
@@ -333,10 +337,11 @@
     }
 
     .wrapper>main>.menu>.menu-box>div>img {
-      width: 218px;
-      height: 218px;
+      width: 90%;
+      height: 100%;
       /* border: 1px solid; */
       /* padding: 10px; */
+
       right: 0px;
       top: 0px;
       position: absolute;
@@ -371,29 +376,33 @@
       justify-content: space-between;
       align-items: center;
     }
-    .wrapper>footer>.footer-menu>ul>div {
-      display: flex;
-      gap : 10px;
-    }
-    .wrapper>footer>.footer-menu>ul>div>li {}
 
-    .wrapper>footer>.footer-menu>ul>div>li>a {
-      color: lightgray;
+    .wrapper>footer>.footer-menu>ul>li {
+      gap: 10px;
+    }
+
+    .wrapper>footer>.footer-menu>ul>li>a {
+      color: gray;
       padding: 0 30px;
       font-size: 0.9rem;
-      
     }
-    .wrapper>footer>.footer-menu>ul>div>li>a:first-child{
+
+    .wrapper>footer>.footer-menu>ul>li>a:first-child {
       padding-left: 0px;
     }
 
     .wrapper>footer>.footer-menu>ul>.footer-menu-right>a {
-      
       padding: 0 10px;
     }
-    .wrapper>footer>.footer-menu>ul>.footer-menu-right>a:last-child{
+
+    .wrapper>footer>.footer-menu>ul>.footer-menu-right>a:first-child {
+      padding-left: 60px;
+    }
+
+    .wrapper>footer>.footer-menu>ul>.footer-menu-right>a:last-child {
       padding-right: 0px;
     }
+
     .wrapper>footer>.company {
       width: 1020px;
       height: 110px;
@@ -530,20 +539,20 @@
       </div>
       <nav>
         <div class="backing">
-          
+
         </div>
         <div class="back-back"></div>
         <div class="back">
           <button class="gps">
-            <a href="">G</a>
+            G
           </button>
           <div class="nav-right">
             <input type="text" id="searchbar" placeholder="건물명, 도로명, 지번으로 검색하세요">
             <button class="cancle">
-              <a href="">x</a>
+              x
             </button>
             <button class="search">
-              <a href="">검색</a>
+              검색
             </button>
 
 
@@ -621,16 +630,16 @@
     <footer>
       <div class="footer-menu">
         <ul>
-          <div>
-            <li><a href="javascript:void(0)">이용약관</a></li>
-            <li><a href="javascript:void(0)">개인정보처리방침</a></li>
-            <li><a href="javascript:void(0)">포인트정책</a></li>
-            <li><a href="javascript:void(0)">회사소개</a></li>
-            <li><a href="javascript:void(0)">저기요사장님</a></li>
-            <li><a href="javascript:void(0)">입점문의</a></li>
-            <li><a href="javascript:void(0)">공지사항</a></li>
-            <li><a href="javascript:void(0)">FAQ</a></li>
-          </div>
+
+          <li><a href="javascript:void(0)">이용약관</a></li>
+          <li><a href="javascript:void(0)" style="font-weight: 600;">개인정보처리방침</a></li>
+          <li><a href="javascript:void(0)">포인트정책</a></li>
+          <li><a href="javascript:void(0)">회사소개</a></li>
+          <li><a href="javascript:void(0)">저기요사장님</a></li>
+          <li><a href="javascript:void(0)">입점문의</a></li>
+          <li><a href="javascript:void(0)">공지사항</a></li>
+          <li><a href="javascript:void(0)">FAQ</a></li>
+
           <li class="footer-menu-right">
             <a href="javascript:void(0)">페이스북</a>
             <a href="javascript:void(0)">블로그</a>
@@ -652,13 +661,13 @@
       <div class="service-info">
         <div class="bpg">
           <a href="">
-            <span imp=""></span>
+            <span></span>
             <span>저기요<br>안심센터</span>
           </a>
         </div>
         <div class="review">
           <a href="">
-            <span imp=""></span>
+            <span></span>
             <span>저기요 100%<br>클린리뷰</span>
           </a>
         </div>
