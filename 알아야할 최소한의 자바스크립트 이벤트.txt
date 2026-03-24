@@ -1,0 +1,15 @@
+마우스
+키보드
+체크(change)
+스크롤
+resize
+loaded
+
+
+node.addEventListen("click",()=>{})
+node.addEventListen("input",()=>{})
+node.addEventListen("keydown",()=>{})
+node.addEventListen("change",()=>{})
+node.addEventListen("scroll",()=>{})
+node.addEventListen("resize",()=>{})
+node.addEventListen("DOMContentLoaded",()=>{})

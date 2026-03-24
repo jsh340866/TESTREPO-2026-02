@@ -26,4 +26,41 @@ class Solution {
 }
 
 문제 63. 수 조작하기 1
+1. class Solution {
+    public int solution(int n, String control) {
+        for (int i = 0; i<control.length();i++){
+            char ch = control.charAt(i);
+            if(ch == 'w'){
+                n++;
+            }
+            else if (ch == 's'){
+                n--;
+            }
+            else if (ch == 'd'){
+                n += 10;
+            }
+            else if (ch == 'a'){
+                n -= 10;
+            }
+        }
+        return n;
+    }
+}
 
+2. class Solution {
+    public int solution(int n, String control) {
+        int answer = n;
+
+        for(char ch : control.toCharArray()) {
+            switch(ch) {
+                case 'w': answer += 1; break;
+                case 's': answer -= 1; break;
+                case 'd': answer += 10; break;
+                case 'a': answer -= 10; break;
+                default:break;
+            }
+        }
+
+        return answer;
+    }
+}
